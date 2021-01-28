@@ -1,8 +1,13 @@
-import telegram
 from instagram_private_api import Client, ClientCompatPatch
-import logging
-
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+import requests
 
 
-userid =
+BotToken = '1633415315:AAE5UXzuUpQW9LlekvNVFsbMHUdWsV9TX74'
+
+global requestURL
+requestURL = 'http://api.telegram.org/bot' + BotToken + '/getUpdates'
+
+ResultRaw = requests.get(requestURL)
+Result = ResultRaw.json()
+
+print(Result)
